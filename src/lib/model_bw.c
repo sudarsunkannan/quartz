@@ -230,6 +230,10 @@ int __set_read_bw(physical_node_t* node, uint64_t target_bw)
     DBG_LOG(INFO, "Setting throttle reg: %d (0x%x), target read bandwidth: %" PRIu64 ", actual read bandwidth: %" PRIu64 "\n", read_bw_model.throttle_reg_val[point], read_bw_model.throttle_reg_val[point], target_bw, (uint64_t) read_bw_model.bandwidth[point]);
     node->cpu_model->set_throttle_register(regs, THROTTLE_DDR_ACT, read_bw_model.throttle_reg_val[point]);
 
+    //Fix to enable throttling in newer platforms which require DDR read and write registers to be modified.
+    node->cpu_model->set_throttle_register(regs, THROTTLE_DDR_READ, read_bw_model.throttle_reg_val[point]);
+    node->cpu_model->set_throttle_register(regs, THROTTLE_DDR_WRITE, read_bw_model.throttle_reg_val[point]);
+
     return E_SUCCESS;
 }
 
