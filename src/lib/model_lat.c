@@ -40,7 +40,8 @@ latency_model_t latency_model;
 
 #pragma GCC push_options
 #pragma GCC optimize ("O0")
-inline hrtime_t hrtime_cycles(void)
+//inline 
+hrtime_t hrtime_cycles(void)
 {
     unsigned hi, lo;
     __asm__ __volatile__ ("rdtscp" : "=a"(lo), "=d"(hi));
@@ -55,7 +56,8 @@ static inline hrtime_t ns_to_cycles(int cpu_speed_mhz, int ns)
 }
 */
 
-inline hrtime_t cycles_to_us(int cpu_speed_mhz, hrtime_t cycles)
+//inline 
+hrtime_t cycles_to_us(int cpu_speed_mhz, hrtime_t cycles)
 {
     return (cycles/cpu_speed_mhz);
 }

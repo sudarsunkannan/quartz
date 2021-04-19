@@ -92,7 +92,7 @@ element_t* element(chain_t* chain, uint64_t index)
     return (element_t *) p;
 }
 
-void inline read_element(chain_t* chain, uint64_t index, char* buf, uint64_t buf_size)
+void read_element(chain_t* chain, uint64_t index, char* buf, uint64_t buf_size)
 {
     uint64_t i;
     element_t *elem = element(chain, index);

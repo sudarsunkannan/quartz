@@ -65,4 +65,6 @@ void init_thread_latency_model(thread_t *thread);
 
 void create_latency_epoch();
 
+hrtime_t hrtime_cycles(void);
+hrtime_t cycles_to_us(int cpu_speed_mhz, hrtime_t cycles);
 #endif /* __MODEL_H */

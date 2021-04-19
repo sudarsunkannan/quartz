@@ -39,8 +39,8 @@ int (*__lib_pthread_mutex_trylock)(pthread_mutex_t *mutex);
 int (*__lib_pthread_mutex_unlock)(pthread_mutex_t *mutex);
 int (*__lib_pthread_detach)(pthread_t thread);
 
-extern inline hrtime_t hrtime_cycles(void);
-extern inline int cycles_to_us(cpu_model_t* cpu, hrtime_t cycles);
+//extern inline hrtime_t hrtime_cycles(void);
+//extern inline int cycles_to_us(cpu_model_t* cpu, hrtime_t cycles);
 
 
 int init_interposition()
