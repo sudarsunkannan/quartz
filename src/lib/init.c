@@ -107,7 +107,7 @@ void init()
     if (init_bandwidth_model(&cfg, virtual_topology) != E_SUCCESS) {
         goto error;
     }
-
+#if 0
     if (latency_model.enabled) {
         if (init_latency_model(&cfg, cpu, virtual_topology) != E_SUCCESS) {
    	        goto error;
@@ -142,6 +142,7 @@ void init()
         }
 #endif
     }
+#endif
 
     end_time = monotonic_time_us();
 
@@ -154,6 +155,11 @@ void init()
     if (ld_preload_path)
         setenv("LD_PRELOAD", ld_preload_path, 1);
 
+    fprintf(stderr, "*****DISABLE THIS EXIT(0) when running for first time %s:%d\n", __func__,__LINE__);
+    fprintf(stderr, "*****DISABLE THIS EXIT(0) when running for first time %s:%d\n", __func__,__LINE__);
+    fprintf(stderr, "*****DISABLE THIS EXIT(0) when running for first time %s:%d\n", __func__,__LINE__);
+    fprintf(stderr, "*****DISABLE THIS EXIT(0) when running for first time %s:%d\n", __func__,__LINE__);
+    exit(0);
     return;
 
 error:

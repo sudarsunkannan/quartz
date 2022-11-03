@@ -254,6 +254,9 @@ int init_bandwidth_model(config_t* cfg, virtual_topology_t* topology)
 
     if (read_bw_model.enabled) {
         DBG_LOG(INFO, "Initializing bandwidth model\n");
+
+	fprintf(stderr, "%s:%d Initializing bandwidth model \n", __func__,__LINE__);
+
         // initialize bandwidth model
         for (i=0; i<topology->num_virtual_nodes; i++) {
             // FIXME: currently we keep a single bandwidth model and not per-node bandwidth model
@@ -272,6 +275,9 @@ int init_bandwidth_model(config_t* cfg, virtual_topology_t* topology)
 
         // set read and write memory bandwidth 
         for (i=0; i<topology->num_virtual_nodes; i++) {
+
+	    fprintf(stderr, "%s:%d before setting \n", __func__,__LINE__);
+
             physical_node_t* phys_node = topology->virtual_nodes[i].nvram_node;
             set_read_bw(cfg, phys_node);
             //set_write_bw(cfg, phys_node);
@@ -282,9 +288,8 @@ int init_bandwidth_model(config_t* cfg, virtual_topology_t* topology)
             // FIXME: currently we keep a single bandwidth model and not per-node bandwidth model
             physical_node_t* phys_node = topology->virtual_nodes[i].dram_node;
             __set_read_bw(phys_node, (uint64_t) (-1));
-            __set_write_bw(phys_node, (uint64_t) (-1));
+            //__set_write_bw(phys_node, (uint64_t) (-1));
         }
     }
-
     return E_SUCCESS;
 }

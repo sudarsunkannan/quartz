@@ -12,6 +12,7 @@
 #Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 #################################################################
 #!/bin/bash
+set -x
 
 NVM_EMUL_PATH="`dirname $0`/.."
 
